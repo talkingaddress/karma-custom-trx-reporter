@@ -1,0 +1,37 @@
+{
+  "name": "karma-trx-custom-reporter",
+  "version": "0.4.3",
+  "description": "A Karma plugin. Report results in MSTest trx format and custom xml format.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/talkingaddress/karma-trx-custom-reporter.git" 
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/yourOrganizationOrAccount"
+  },
+  "keywords": [
+    "karma-plugin",
+    "karma-reporter",
+    "trx",
+    "custom-reporter"
+  ],
+  "author": {
+    "name": "Cristian Balint",
+    "email": "talkingaddress@gmail.com"
+  },
+  "dependencies": {
+    "xmlbuilder": "10.0.0"
+  },
+  "peerDependencies": {
+    "karma": ">=0.12"
+  },
+  "license": "MIT",
+  "devDependencies": {},
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/talkingaddress/karma-trx-custom-reporter/issues"
+  },
+  "_id": "karma-trx-custom-reporter@0.1.1"
+}
