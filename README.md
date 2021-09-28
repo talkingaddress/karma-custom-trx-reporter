@@ -1,12 +1,11 @@
-# karma-trx-reporter
+# karma-custom-trx-reporter
 
-> Reporter for the VisualStudio TRX format.
+> Reporter for the VisualStudio TRX and custom format.
 
 ## Status
 | Branch        | Status         |
 | ------------- |:-------------:|
 | master        | [![Build Status](https://travis-ci.org/hatchteam/karma-trx-reporter.svg?branch=master)](https://travis-ci.org/hatchteam/karma-trx-reporter) |
-| develop       | [![Build Status](https://travis-ci.org/hatchteam/karma-trx-reporter.svg?branch=develop)](https://travis-ci.org/hatchteam/karma-trx-reporter)|
 
 ## Installation
 
@@ -22,7 +21,7 @@ The easiest way is to keep `karma-trx-reporter` as a devDependency in your `pack
 
 You can simple do it by:
 ```bash
-npm install karma-trx-reporter --save-dev
+npm install karma-custom-trx-reporter --save-dev
 ```
 
 ## Configuration
@@ -50,7 +49,7 @@ module.exports = function(config) {
 The output file specifies where the trx file will be written.
 
 ### shortTestName
-The trx reporter will attend the browser name to the test name by default.
+The custom-trx reporter will attend the browser name to the test name by default.
 This can be switched off with the shortTestName config property.
 
 ### nameFormatter
