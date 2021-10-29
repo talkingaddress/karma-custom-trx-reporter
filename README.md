@@ -75,10 +75,11 @@ Syntax for function is ``` function (xmlSectionObject, data) {} ```
 Parameters:
 
 **xmlSectionObject** - [xmlbuilder] object
+
 **data** - unit test data info 
 ```js     
-{ unitTestId, unitTestName, className, executionId, codeBase, hostName, duration, result } 
-result : {fullName, description, id, log, skipped, disabled, pending, success, suite, time, executedExpectationsCount, passedExpectations, properties }
+data: { unitTestId, unitTestName, className, executionId, codeBase, hostName, duration, result } 
+result: {fullName, description, id, log, skipped, disabled, pending, success, suite, time, executedExpectationsCount, passedExpectations, properties }
 ```
 
 Example: 
