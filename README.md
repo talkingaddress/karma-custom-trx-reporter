@@ -46,7 +46,7 @@ module.exports = function(config) {
 The output file specifies where the xml file will be written.
 
 ### shortTestName
-The custom reporter will attend the browser name to the test name by default.
+The custom-trx reporter will attend the browser name to the test name by default.
 This can be switched off with the shortTestName config property.
 
 ### nameFormatter
