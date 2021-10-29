@@ -67,21 +67,25 @@ The parent element name for all xml unit tests
 ### testXmlFormater
 A function for creating any custom xml format for each test
 
+Syntax for function is ``` function (xmlSectionObject, data) {} ```
+
 Parameters:
 ```
-    xmlSectionObject - xmlbuilder object (https://github.com/oozcitak/xmlbuilder-js#readme)
-    data - unit test data info { unitTestId, unitTestName, className, executionId, codeBase, hostName, duration, result } 
-                                result : {fullName, description, id, log, skipped, disabled, pending, success, suite, time, executedExpectationsCount, passedExpectations, properties }
+    **xmlSectionObject** - [xmlbuilder] object
+    **data** - unit test data info ```json 
+                                 { unitTestId, unitTestName, className, executionId, codeBase, hostName, duration, result } 
+                                result : {fullName, description, id, log, skipped, disabled, pending, success, suite, time, executedExpectationsCount, 
+                                passedExpectations, properties }
+                                ```
 ```
 
-Syntax for function is ```js function (xmlSectionObject, data) {} ```
-
 Example: 
-```js function (xmlSectionObject, data) {
+```js 
+function (xmlSectionObject, data) {
   xmlSectionObject.ele('any-text')
         .attr('name', data.unitTestName)
         .attr('duration', data.duration)
-        .attr('description', '${data.unitTestName} from class ${data.className} ${result.skipped?'was skipped':''}')
+        .attr('description', '${data.unitTestName} from class ${data.className} ${result.skipped ? "was skipped":""}')
 } 
 ```
 
@@ -94,5 +98,5 @@ karma start --reporters custom-trx,dots
 
 For more information on Karma see the [homepage].
 
-
 [homepage]: http://karma-runner.github.com
+[xmlbuilder]: https://github.com/oozcitak/xmlbuilder-js#readme
