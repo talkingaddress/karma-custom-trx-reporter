@@ -33,6 +33,8 @@ module.exports = function(config) {
 
     // the default configuration
     customTrxReporter: {
+            outputFile:'',
+            shortTestName:false,
             asSeparateFile: false,
             separateFileName: 'custom.xml', // can be type of file
             rootElement: 'CustomSection', // can be overridden with any text
@@ -47,7 +49,8 @@ The output file specifies where the xml file will be written.
 
 ### shortTestName
 The custom-trx reporter will attend the browser name to the test name by default.
-This can be switched off with the shortTestName config property.
+
+This can be switched off with the `shortTestName` config property.
 
 ### nameFormatter
 You can provide a custom function to format the `testName` field of the trx.
@@ -70,14 +73,13 @@ A function for creating any custom xml format for each test
 Syntax for function is ``` function (xmlSectionObject, data) {} ```
 
 Parameters:
-```
     **xmlSectionObject** - [xmlbuilder] object
-    **data** - unit test data info ```json 
-                                 { unitTestId, unitTestName, className, executionId, codeBase, hostName, duration, result } 
-                                result : {fullName, description, id, log, skipped, disabled, pending, success, suite, time, executedExpectationsCount, 
-                                passedExpectations, properties }
-                                ```
-```
+    **data** - unit test data info 
+    ```json 
+    { unitTestId, unitTestName, className, executionId, codeBase, hostName, duration, result } 
+      result : {fullName, description, id, log, skipped, disabled, pending, success, suite, time, executedExpectationsCount, 
+      passedExpectations, properties }
+    ```
 
 Example: 
 ```js 
