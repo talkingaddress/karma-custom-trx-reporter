@@ -73,7 +73,9 @@ A function for creating any custom xml format for each test
 Syntax for function is ``` function (xmlSectionObject, data) {} ```
 
 Parameters:
+
     **xmlSectionObject** - [xmlbuilder] object
+
     **data** - unit test data info 
     ```json 
     { unitTestId, unitTestName, className, executionId, codeBase, hostName, duration, result } 
