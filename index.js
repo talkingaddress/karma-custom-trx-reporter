@@ -71,7 +71,7 @@ var TRXReporter = function (baseReporterDecorator, config, emitter, logger, help
     baseReporterDecorator(this);
 
     this.onRunStart = function () {
-        var userName = process.env.USERNAME || process.env.USER || "karma-trx";
+        var userName = process.env.USERNAME || process.env.USER || "karma-custom-trx";
         var runStartTimestamp = getTimestamp();
         testRun = builder.create("TestRun", {
                 version: '1.0',
@@ -149,16 +149,18 @@ var TRXReporter = function (baseReporterDecorator, config, emitter, logger, help
         var xmlToOutput = testRun;
         let customSectionXml = customSectionElement;
 
-        helper.mkdirIfNotExists(path.dirname(outputFile), function () {
-            fs.writeFile(outputFile, xmlToOutput.end({pretty: true}), function (err) {
-                if (err) {
-                    log.warn('Cannot write TRX testRun\n\t' + err.message);
-                } else {
-                    log.debug('TRX results written to "%s".', outputFile);
-                }
+        if(outputFile){
+            helper.mkdirIfNotExists(path.dirname(outputFile), function () {
+                fs.writeFile(outputFile, xmlToOutput.end({pretty: true}), function (err) {
+                    if (err) {
+                        log.warn('Cannot write TRX testRun\n\t' + err.message);
+                    } else {
+                        log.debug('TRX results written to "%s".', outputFile);
+                    }
+                });
             });
-        });
-
+        }
+        
         if (customSectionConfig && customSectionConfig.asSeparateFile === true) {
             fs.writeFile(customSectionConfig.separateFileName, customSectionXml.end({
                 pretty: true
