@@ -27,7 +27,7 @@ var TRXReporter = function (baseReporterDecorator, config, emitter, logger, help
             asSeparateFile: false,
             separateFileName: 'custom.xml',
             rootElement: 'CustomSection',
-            testXmlFormater: function (xmlSectionObject, data) {},
+            testXmlFormater: null, // syntax for this formater is like: function (xmlSectionObject, data) {},
             ...config.customSection
         } :
         null;
@@ -240,12 +240,11 @@ var TRXReporter = function (baseReporterDecorator, config, emitter, logger, help
     };
 };
 
-TRXReporter.$inject = ['baseReporterDecorator', 'config.trxReporter', 'emitter', 'logger',
+TRXReporter.$inject = ['baseReporterDecorator', 'config.customTrxReporter', 'emitter', 'logger',
     'helper', 'formatError'
 ];
 
 // PUBLISH DI MODULE
 module.exports = {
-    'reporter:trx': ['type', TRXReporter],
-    'TRXReporter': TRXReporter
+    'reporter:custom-trx': ['type', TRXReporter]
 };
