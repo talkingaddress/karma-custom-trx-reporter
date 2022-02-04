@@ -1,10 +1,10 @@
-# karma-custom-trx-reporter
+# karma-custom-reporter
 
 > A Karma plugin. Report results in MSTest trx format or custom xml format.
 
 ## Installation
 
-The easiest way is to keep `karma-custom-trx-reporter` as a devDependency in your `package.json`.
+The easiest way is to keep `karma-custom-reporter` as a devDependency in your `package.json`.
 ```json
 {
   "devDependencies": {
@@ -16,7 +16,7 @@ The easiest way is to keep `karma-custom-trx-reporter` as a devDependency in you
 
 You can simple do it by:
 ```bash
-npm install karma-custom-trx-reporter --save-dev
+npm install karma-custom-reporter --save-dev
 ```
 
 ## Configuration
@@ -26,7 +26,7 @@ module.exports = function(config) {
   config.set({
     plugins: [
       ...
-      require('karma-custom-trx-reporter')
+      require('karma-custom-reporter')
     ],
     
     reporters: ['progress', 'custom-trx'],

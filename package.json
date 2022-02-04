@@ -1,6 +1,6 @@
 {
   "name": "karma-custom-reporter",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Karma plugin. Report results in MSTest trx format or custom xml format.",
   "main": "index.js",
   "scripts": {},
@@ -36,5 +36,5 @@
   "bugs": {
     "url": "https://github.com/talkingaddress/karma-custom-reporter/issues"
   },
-  "_id": "karma-custom-reporter@1.1.0"
+  "_id": "karma-custom-reporter@1.1.1"
 }
