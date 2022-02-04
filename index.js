@@ -246,7 +246,27 @@ TRXReporter.$inject = ['baseReporterDecorator', 'config.customTrxReporter', 'emi
     'helper', 'formatError'
 ];
 
+function extractJiraIdXmlFormater(xmlBuilderObject, data, overrideFn){
+
+    if(overrideFn && typeof(overrideFn)==='function'){ // for overriding current behaviour 
+        overrideFn(xmlBuilderObject, data);
+        return;
+    }
+
+    const regexForJiraId = /(?<=\[).+?(?=\])/gi; // regex for extracting jira id from unit test name
+    const matches = (data.codeBase || '').match(regexForJiraId); // extract all matches. There could be multiple describes(or its) that have Jira id set in description 
+    if(matches && matches.length){ // if any match
+      const requirementValue = `AltID_${matches.reverse()[0]}`; // get the deepest Jira Id from unit test name
+      const testcaseTag = xmlBuilderObject.ele('testcase')
+      .att('classname', data.className.replace(regexForJiraId, '').replace('[]',''))
+      .att('name', data.unitTestName.replace(regexForJiraId, '').replace('[]',''));
+      const requirementsTag = testcaseTag.ele('requirements');
+      requirementsTag.ele('requirement', requirementValue);
+    }
+  }
+
 // PUBLISH DI MODULE
 module.exports = {
-    'reporter:custom-trx': ['type', TRXReporter]
+    'reporter:custom-trx': ['type', TRXReporter],
+    extractJiraIdXmlFormater:extractJiraIdXmlFormater
 };
